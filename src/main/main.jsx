@@ -80,7 +80,7 @@ export default function Main() {
             <span>После первого этапа будут выложены рекомендации</span>
           </p>
           <Link to="/questions" type="button" className="bg-red-500 text-white transition-all flex
-          fill-white hover:bg-red-400 mt-4 px-4 py-2">
+          fill-white hover:bg-red-400 mt-4 px-4 py-2 max-w-fit font-semibold">
             <svg viewBox="0 0 24 24" className="h-6 w-6" xmlns="http://www.w3.org/2000/svg"><g>
               <path d="M0 0h24v24H0z" fill="none"/>
               <path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 
@@ -110,7 +110,7 @@ export default function Main() {
               </svg>
               <span className="text-base ml-2">Рассказать про Безумное голосование</span>
             </button>
-            <a href="https://discord.com/channels/@me" target="_blank"
+            <a href="https://discord.com/channels/@me" target="_blank" rel="noreferrer"
             className="border-2 border-[#4d5af0] text-[#4d5af0] transition-all flex hover:text-white
             hover:fill-white fill-[#4d5af0] py-2 px-6 bg-inherit hover:bg-[#4d5af0] mt-2">
               <svg viewBox="0 0 640 512" className="h-6 w-6" xmlns="http://www.w3.org/2000/svg">

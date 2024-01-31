@@ -1,25 +1,16 @@
 import './App.css';
-import Header from './components/header';
 import { Route, Routes } from 'react-router-dom';
 import Main from './main/main';
-import { useEffect, useState } from 'react';
 import Candidats from './candidats/candidats';
+import Questions from './questions/questions';
 
 function App() {
-  const [isHeaderVisible, setIsHeaderVisible] = useState(false)
-
-  useEffect(() => {
-    document.addEventListener("scroll", (event) => {
-      let lastKnownScrollPosition = window.scrollY;
-      setIsHeaderVisible(lastKnownScrollPosition > 500)
-    });
-  })
-
   return (
     <div className="App min-h-[100vh]">
       <Routes>
         <Route path='/' element={<Main></Main>}></Route>
         <Route path='candidats' element={<Candidats></Candidats>}></Route>
+        <Route path='questions' element={<Questions></Questions>}></Route>
       </Routes>
     </div>
   );
