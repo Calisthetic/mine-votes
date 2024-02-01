@@ -1,15 +1,74 @@
 import { Link } from "react-router-dom"
 import background from "./../background.jpg"
+import { useEffect, useState } from "react"
+import Header from "../components/header"
+import { AnimatePresence } from "framer-motion"
 
 export default function Main() {
+  const [isCopied, setIsCopied] = useState(false)
+
+  function CopyClick() {
+    navigator.clipboard.writeText("https://mine-votes.vercel.app/")
+    if (!isCopied) {
+      setIsCopied(true)
+      setTimeout(() => {
+        setIsCopied(false)
+      }, 2000);
+    }
+  }
+
+  const [isHeaderVisible, setIsHeaderVisible] = useState(false)
+
+  useEffect(() => {
+    document.addEventListener("scroll", () => {
+      setIsHeaderVisible(window.scrollY > 10)
+    });
+
+    return () => {
+      document.removeEventListener("scroll", () => {
+        setIsHeaderVisible(window.scrollY > 10)
+      });
+    }
+  })
+  
+  const questions = [
+    {
+      question: "Кто это сделал?",
+      answer: "Я"
+    },
+    {
+      question: "Нафига?",
+      answer: "Потому что котики очень милые"
+    },
+    {
+      question: "Какая цель у этого сайта?",
+      answer: "Предложить крутых кандидатов на голосование"
+    },
+    {
+      question: "Сколько было заплачено за этот сайт?",
+      answer: "Работал за еду"
+    },
+    {
+      question: "Ты больной?",
+      answer: "Yeah, sure"
+    },
+    {
+      question: "Где можно задать больше вопросов?",
+      answer: "В личку maskumau"
+    }
+  ]
+
   return (
     <>
+      <AnimatePresence>
+        {isHeaderVisible && (<Header></Header>)}
+      </AnimatePresence>
       <div className="relative">
         <img src={background} alt="background" className="-mx-[50vw] sm:-mx-[25vw] md:mx-0 min-w-[200vw] sm:min-w-[150vw] md:min-w-[100vw]"></img>
         <div className=" absolute top-0 left-0 bg-black/50 w-full h-full flex items-center justify-center
         text-white font-bold text-xl sm:text-3xl flex-col">
-          <div>
-            <p className="flex flex-col text-centers mb-2">
+          <div className="flex flex-col gap-y-1.5">
+            <p className="flex flex-col text-centers">
               <span>Март 2024 года -</span>
               <span>выборы на должности:</span>
             </p>
@@ -28,7 +87,7 @@ export default function Main() {
                 <a href="https://docs.google.com/forms/d/1NYRcSbfL8jF-yu6aVlqksRGZs2JV-tTH_-R7KUn3NG4/edit">Глава спавна</a>
               </li>
             </ul>
-            <Link to="candidats" className=" bg-red-500 text-white px-6 sm:px-8 py-2 text-base mt-4 hover:bg-red-400 transition-colors">
+            <Link to="candidats" className=" bg-red-500 text-white px-6 sm:px-8 py-2 text-base hover:bg-red-400 transition-colors">
               Найти кандидата
             </Link>
           </div>
@@ -37,7 +96,7 @@ export default function Main() {
       <div className="flex items-center flex-col">
         <div className="my-6 container text-left">
           <p className=" font-bold text-xl pl-2 sm:text-2xl md:text-3xl">Предстоящие этапы</p>
-          <ol className="relative text-gray-500 ml-2 border-s mt-4 border-gray-200 child:text-left">                  
+          <ol className="relative text-gray-500 ml-6 sm:ml-2 border-s mt-4 border-gray-200 child:text-left">                  
             {/* <li className="mb-10 ms-6">
               <span className="absolute flex items-center justify-center w-8 h-8 bg-green-200 rounded-full -start-4 ring-4 ring-white">
                 <svg className="w-3.5 h-3.5 text-green-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
@@ -75,20 +134,134 @@ export default function Main() {
               <p className="text-sm">День проведения дебатов и голосования</p>
             </li>
           </ol>
-          <p className="mt-6 text-xl font-bold">
-            <span className=" text-red-600 mr-2 text-2xl">!!!</span>
-            <span>После первого этапа будут выложены рекомендации</span>
-          </p>
-          <Link to="/questions" type="button" className="bg-red-500 text-white transition-all flex
-          fill-white hover:bg-red-400 mt-4 px-4 py-2 max-w-fit font-semibold">
-            <svg viewBox="0 0 24 24" className="h-6 w-6" xmlns="http://www.w3.org/2000/svg"><g>
-              <path d="M0 0h24v24H0z" fill="none"/>
-              <path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 
-              0 1 0 0-16 8 8 0 0 0 0 16zm-1-5h2v2h-2v-2zm2-1.645V14h-2v-1.5a1 1 0 0 1 1-1 1.5 1.5 0 1 
-              0-1.471-1.794l-1.962-.393A3.501 3.501 0 1 1 13 13.355z"/></g>
-            </svg>
-            <span className="text-base ml-2">Остались вопросы?</span>
-          </Link>
+        </div>
+      </div>
+      <div id="candidats" className="bg-[#e7f6fa] w-full mt-4 font-bold text-xl sm:text-2xl md:text-3xl flex items-center flex-col">
+        <div className="container flex justify-start">
+          <p className=" font-bold text-xl pl-2 sm:text-2xl md:text-3xl mt-4">Наши рекомендации</p>
+        </div>
+        <div className="container lg:min-w-[900px]">
+          <div className="overflow-y-hidden sm:rounded-lg border mt-2 mb-8">
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead>
+                  <tr className="bg-[#007fa3] text-left text-xs font-semibold uppercase tracking-widest text-white">
+                    <th className="px-5 pr-3 text-center w-[240px]">Ник</th>
+                    <th className="px-5 py-3 text-center w-[180px]">Роль</th>
+                    <th className="px-5 py-3 text-center">Предвыборная речь</th>
+                  </tr>
+                </thead>
+                <tbody className="text-gray-500">
+                  <tr>
+                    <td className="border-b border-gray-200 bg-white px-5 py-5 text-sm">
+                      <div className="flex items-center">
+                        <div className="h-10 w-10 flex-shrink-0">
+                          <img className="h-full w-full rounded-full" 
+                          src="https://t4.ftcdn.net/jpg/00/64/67/27/240_F_64672736_U5kpdGs9keUll8CRQ3p3YaEv2M6qkVY5.jpg" alt="user" />
+                        </div>
+                        <div className="ml-3">
+                          <p className="whitespace-no-wrap">Horfaralice</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td className="border-b border-gray-200 bg-white px-5 py-5 text-sm">
+                      <p className="whitespace-no-wrap text-[#0728e9]">Глава ФБР</p>
+                    </td>
+                    <td className="border-b border-gray-200 bg-white px-5 py-5 text-sm">
+                      <span className="rounded-full px-3 py-1 text-xs font-semibold">Yoo, chill, guys</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="border-b border-gray-200 bg-white px-5 py-5 text-sm">
+                      <div className="flex items-center">
+                        <div className="h-10 w-10 flex-shrink-0">
+                          <img className="h-full w-full rounded-full" 
+                          src="https://t4.ftcdn.net/jpg/00/64/67/27/240_F_64672736_U5kpdGs9keUll8CRQ3p3YaEv2M6qkVY5.jpg" alt="user" />
+                        </div>
+                        <div className="ml-3">
+                          <p className="whitespace-no-wrap">Calsyfer</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td className="border-b border-gray-200 bg-white px-5 py-5 text-sm">
+                      <p className="whitespace-no-wrap text-[#f500a6]">Министр экономики</p>
+                    </td>
+                    <td className="border-b border-gray-200 bg-white px-5 py-5 text-sm">
+                      <span className="rounded-full px-3 py-1 text-xs font-semibold">Но это не точно</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="border-b border-gray-200 bg-white px-5 py-5 text-sm">
+                      <div className="flex items-center">
+                        <div className="h-10 w-10 flex-shrink-0">
+                          <img className="h-full w-full rounded-full" 
+                          src="https://t4.ftcdn.net/jpg/00/64/67/27/240_F_64672736_U5kpdGs9keUll8CRQ3p3YaEv2M6qkVY5.jpg" alt="user" />
+                        </div>
+                        <div className="ml-3">
+                          <p className="whitespace-no-wrap">Без понятия кто</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td className="border-b border-gray-200 bg-white px-5 py-5 text-sm">
+                      <p className="whitespace-no-wrap text-[#9b1b51]">Судья</p>
+                    </td>
+                    <td className="border-b border-gray-200 bg-white px-5 py-5 text-sm">
+                      <span className="rounded-full px-3 py-1 text-xs font-semibold">Кота мне в дом, пж</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="bg-white px-5 py-5 text-sm">
+                      <div className="flex items-center">
+                        <div className="h-10 w-10 flex-shrink-0">
+                          <img className="h-full w-full rounded-full" 
+                          src="https://t4.ftcdn.net/jpg/00/64/67/27/240_F_64672736_U5kpdGs9keUll8CRQ3p3YaEv2M6qkVY5.jpg" alt="user" />
+                        </div>
+                        <div className="ml-3">
+                          <p className="whitespace-no-wrap">LuckyBibo</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td className="bg-white px-5 py-5 text-sm">
+                      <p className="whitespace-no-wrap text-[#db984a]">Глава спавна</p>
+                    </td>
+                    <td className="bg-white px-5 py-5 text-sm">
+                      <span className="rounded-full px-3 py-1 text-xs font-semibold">Бам-бам на**й</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="questions" className="bg-white w-full mt-4 font-bold text-xl sm:text-2xl md:text-3xl flex justify-center">
+        <div className="flex flex-col container px-2 sm:px-0 items-start gap-y-2 my-4">
+          <p className=" font-bold text-xl sm:text-2xl md:text-3xl">Остались вопросы?</p>
+          {questions.map((item, index) => (
+            <div key={index} className="w-full rounded-md flex overflow-hidden border border-slate-200">
+              <div className="w-[4px]"></div>
+              <div className="w-[calc(100%-4px)]">
+                <button className="peer group w-full flex justify-between items-center px-2 sm:px-4 py-2">
+                  <span className="text-left text-base sm:text-lg font-semibold mr-1">{item.question}</span>
+                  <div>
+                    <svg className="w-3 h-3 transition-transform group-focus:-rotate-180" aria-hidden="true" 
+                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                      <path className="stroke-black" strokeLinecap="round" 
+                      strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4"/>
+                    </svg>
+                  </div>
+                </button>
+                <div className="grid grid-rows-[0fr] peer-focus:grid-rows-[1fr] peer-focus:pb-2 
+                focus-within:grid-rows-[1fr] focus-within:pb-2 hover:grid-rows-[1fr] hover:pb-2" 
+                style={{
+                  transitionDuration: "0.25s",
+                  transitionProperty: "grid-template-rows"
+                }}>
+                  <div className="ml-2 overflow-hidden text-base text-left font-normal">- {item.answer}</div>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
       <div className="bg-[#e7f6fa] w-full mt-4 font-bold text-xl sm:text-2xl md:text-3xl flex justify-center">
@@ -99,16 +272,32 @@ export default function Main() {
             <span>умное</span>
             <span className="ml-1 md:ml-2 text-[#007fa3]">голосование</span>
           </p>
-          <div className="child:flex child:justify-center flex flex-col md:flex-row md:gap-x-2 child:py-2 child:px-6 text-nowrap">
+          <div className="child:flex child:justify-center flex flex-col sm:flex-row sm:gap-x-2 child:py-2 
+          child:px-2 sm:child:px-4 text-nowrap">
             <button type="button" className="border-2 border-[#007fa3] text-[#007fa3] transition-all flex hover:text-white
-            hover:stroke-white stroke-[#007fa3] bg-inherit hover:bg-[#007fa3] mt-2">
-              <svg width="18" height="20" fill="none" className="" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6.496 8.542l2.5-1.459 2.5-1.458m-5 5.833l2.5 1.459 2.5 1.458" strokeWidth="2"></path>
-                <circle cx="3.997" cy="9.997" r="2.333" strokeWidth="2"></circle>
-                <circle cx="13.997" cy="4.165" r="2.333" strokeWidth="2"></circle>
-                <circle cx="13.997" cy="15.833" r="2.333" strokeWidth="2"></circle>
-              </svg>
-              <span className="text-base ml-2">Рассказать про Безумное голосование</span>
+            hover:stroke-white stroke-[#007fa3] bg-inherit hover:bg-[#007fa3] mt-2 justify-center 
+            hover:child:fill-white child:fill-[#007fa3] group"
+            onClick={CopyClick}>
+              <div className="overflow-hidden h-6 flex flex-col">
+                <div className="h-12 transition-transform" 
+                style={{transform: "translate(" + (isCopied ? "0px, 0px" : "0px, -24px") + ")"}}>
+                  <svg version="1.1" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title/><desc/><defs/>
+                    <g fill="none" fillRule="evenodd" id="Page-1" stroke="none" strokeWidth="1">
+                    <g transform="translate(-128.000000, -86.000000)">
+                    <g className=" group-hover:fill-white fill-[#007fa3]" transform="translate(128.000000, 86.000000)">
+                    <path d="M5.9,8.1 L4.5,9.5 L9,14 L19,4 L17.6,2.6 L9,11.2 L5.9,8.1 L5.9,8.1 Z M18,10 C18,14.4 14.4,18 10,18 C5.6,
+                    18 2,14.4 2,10 C2,5.6 5.6,2 10,2 C10.8,2 11.5,2.1 12.2,2.3 L13.8,0.7 C12.6,0.3 11.3,0 10,0 C4.5,0 0,4.5 0,10 C0,
+                    15.5 4.5,20 10,20 C15.5,20 20,15.5 20,10 L18,10 L18,10 Z"/></g></g></g>
+                  </svg>
+                  <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9.496 10.542l2.5-1.459 2.5-1.458m-5 5.833l2.5 1.459 2.5 1.458" strokeWidth="2"></path>
+                    <circle cx="6.997" cy="11.997" r="2.333" strokeWidth="2"></circle>
+                    <circle cx="16.997" cy="6.165" r="2.333" strokeWidth="2"></circle>
+                    <circle cx="16.997" cy="17.833" r="2.333" strokeWidth="2"></circle>
+                  </svg>
+                </div>
+              </div>
+              <span className="text-base ml-1 sm:ml-2 text-wrap sm:text-nowrap">Рассказать про Безумное голосование</span>
             </button>
             <a href="https://discord.com/channels/@me" target="_blank" rel="noreferrer"
             className="border-2 border-[#4d5af0] text-[#4d5af0] transition-all flex hover:text-white
