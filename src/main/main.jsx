@@ -87,9 +87,9 @@ export default function Main() {
                 <a href="https://docs.google.com/forms/d/1NYRcSbfL8jF-yu6aVlqksRGZs2JV-tTH_-R7KUn3NG4/edit">Глава спавна</a>
               </li>
             </ul>
-            <Link to="candidats" className=" bg-red-500 text-white px-6 sm:px-8 py-2 text-base hover:bg-red-400 transition-colors">
+            <a href="#candidats" className=" bg-red-500 text-white px-6 sm:px-8 py-2 text-base hover:bg-red-400 transition-colors">
               Найти кандидата
-            </Link>
+            </a>
           </div>
         </div>
       </div>
