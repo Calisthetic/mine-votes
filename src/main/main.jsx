@@ -53,8 +53,8 @@ export default function Main() {
       answer: "Работал за еду"
     },
     {
-      question: "Ты больной?",
-      answer: "Yeah, sure"
+      question: "Сколько стоит место в этом списке?",
+      answer: "Бесценно... Только лучшие кандидаты из возможных"
     },
     {
       question: "Где можно задать больше вопросов?",
@@ -179,25 +179,35 @@ export default function Main() {
             {/* <li className="mb-10 ms-6">
               <span className="absolute flex items-center justify-center w-8 h-8 bg-green-200 rounded-full -start-4 ring-4 ring-white">
                 <svg className="w-3.5 h-3.5 text-green-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5"/>
+                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5.917 5.724 10.5 15 1.5"/>
                 </svg>
               </span>
               <h3 className="font-medium leading-tight">Personal Info</h3>
               <p className="text-sm">Любой желающий сможет подать заявку на интересующую должность</p>
             </li> */}
             <li className="mb-10 ms-6">
-              <span className="absolute flex items-center justify-center w-8 h-8 bg-gray-100 rounded-full -start-4 ring-4 ring-white">
+              {/* <span className="absolute flex items-center justify-center w-8 h-8 bg-gray-100 rounded-full -start-4 ring-4 ring-white">
                 <svg className="w-3.5 h-3.5 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
                   <path d="M18 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2ZM6.5 3a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3.014 13.021l.157-.625A3.427 3.427 0 0 1 6.5 9.571a3.426 3.426 0 0 1 3.322 2.805l.159.622-6.967.023ZM16 12h-3a1 1 0 0 1 0-2h3a1 1 0 0 1 0 2Zm0-3h-3a1 1 0 1 1 0-2h3a1 1 0 1 1 0 2Zm0-3h-3a1 1 0 1 1 0-2h3a1 1 0 1 1 0 2Z"/>
+                </svg>
+              </span> */}
+              <span className="absolute flex items-center justify-center w-8 h-8 bg-green-200 rounded-full -start-4 ring-4 ring-white">
+                <svg className="w-3.5 h-3.5 text-green-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
+                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5.917 5.724 10.5 15 1.5"/>
                 </svg>
               </span>
               <h3 className="font-medium leading-tight">1 ЭТАП</h3>
               <p className="text-sm">Любой желающий сможет подать заявку на интересующую должность</p>
             </li>
             <li className="mb-10 ms-6">
-              <span className="absolute flex items-center justify-center w-8 h-8 bg-gray-100 rounded-full -start-4 ring-4 ring-white">
+              {/* <span className="absolute flex items-center justify-center w-8 h-8 bg-gray-100 rounded-full -start-4 ring-4 ring-white">
                 <svg className="w-3.5 h-3.5 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
                   <path d="M16 1h-3.278A1.992 1.992 0 0 0 11 0H7a1.993 1.993 0 0 0-1.722 1H2a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2Zm-3 14H5a1 1 0 0 1 0-2h8a1 1 0 0 1 0 2Zm0-4H5a1 1 0 0 1 0-2h8a1 1 0 1 1 0 2Zm0-5H5a1 1 0 0 1 0-2h2V2h4v2h2a1 1 0 1 1 0 2Z"/>
+                </svg>
+              </span> */}
+              <span className="absolute flex items-center justify-center w-8 h-8 bg-green-200 rounded-full -start-4 ring-4 ring-white">
+                <svg className="w-3.5 h-3.5 text-green-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
+                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5.917 5.724 10.5 15 1.5"/>
                 </svg>
               </span>
               <h3 className="font-medium leading-tight">2 ЭТАП</h3>
@@ -223,7 +233,7 @@ export default function Main() {
           </p>
         </div>
         <div className="container lg:min-w-[900px]">
-          <div className="overflow-y-hidden sm:rounded-lg border mt-2 mb-8">
+          <div className="overflow-y-hidden sm:rounded-lg border my-2">
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead>
@@ -263,6 +273,19 @@ export default function Main() {
                 </tbody>
               </table>
             </div>
+          </div>
+        </div>
+        <div className="container flex justify-start mb-4 mt-2">
+          <div className=" font-normal text-sm pl-2 indent-4 text-justify">
+            <p>
+              Дорогие участники сервера Old Memories, сегодня предоставилась уникальная возможность 
+              представить вам несколько изумительных кандидатов, за которых вы можете отдать свой голос.
+            </p>
+            <p>
+              Каждый из этих кандидатов внес свой вклад в развитие нашего сервера и его сообщества. 
+              Отдавая свой голос за них, вы показываете признание и поддержку их усилий в игре. 
+              Благодаря вашему голосу, эти игроки смогут продолжать вдохновлять других и участвовать в развитии игрового мира.
+            </p>
           </div>
         </div>
       </div>
@@ -307,7 +330,7 @@ export default function Main() {
           <div className="child:flex child:justify-center flex flex-col sm:flex-row sm:gap-x-2 child:py-2 
           child:px-2 sm:child:px-4 text-nowrap">
             <button type="button" className="border-2 border-[#007fa3] text-[#007fa3] transition-all flex hover:text-white
-            hover:stroke-white stroke-[#007fa3] bg-inherit hover:bg-[#007fa3] mt-2 justify-center 
+            hover:strokeWhite stroke-[#007fa3] bg-inherit hover:bg-[#007fa3] mt-2 justify-center 
             hover:child:fill-white child:fill-[#007fa3] group"
             onClick={CopyClick}>
               <div className="overflow-hidden h-6 flex flex-col">
