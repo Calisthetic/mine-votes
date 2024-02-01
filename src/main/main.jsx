@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom"
 import background from "./../background.jpg"
 import { useEffect, useState } from "react"
 import Header from "../components/header"
@@ -64,7 +63,10 @@ export default function Main() {
         {isHeaderVisible && (<Header></Header>)}
       </AnimatePresence>
       <div className="relative">
-        <img src={background} alt="background" className="-mx-[50vw] sm:-mx-[25vw] md:mx-0 min-w-[200vw] sm:min-w-[150vw] md:min-w-[100vw]"></img>
+        <img src={background} alt="background" 
+        className="-mx-[50vw] opacity-0 sm:-mx-[25vw] md:mx-0 min-w-[200vw] sm:min-w-[150vw] md:min-w-[100vw]"></img>
+        <img src={background} alt="background" 
+        className="fixed -z-10 top-0 left-0 -mx-[50vw] sm:-mx-[25vw] md:mx-0 min-w-[200vw] sm:min-w-[150vw] md:min-w-[100vw]"></img>
         <div className=" absolute top-0 left-0 bg-black/50 w-full h-full flex items-center justify-center
         text-white font-bold text-xl sm:text-3xl flex-col">
           <div className="flex flex-col gap-y-1.5">
@@ -93,7 +95,7 @@ export default function Main() {
           </div>
         </div>
       </div>
-      <div className="flex items-center flex-col">
+      <div className="flex items-center flex-col bg-white">
         <div className="my-6 container text-left">
           <p className=" font-bold text-xl pl-2 sm:text-2xl md:text-3xl">Предстоящие этапы</p>
           <ol className="relative text-gray-500 ml-6 sm:ml-2 border-s mt-4 border-gray-200 child:text-left">                  
@@ -136,7 +138,7 @@ export default function Main() {
           </ol>
         </div>
       </div>
-      <div id="candidats" className="bg-[#e7f6fa] w-full mt-4 font-bold text-xl sm:text-2xl md:text-3xl flex items-center flex-col">
+      <div id="candidats" className="bg-[#e7f6fa] w-full py-2 font-bold text-xl sm:text-2xl md:text-3xl flex items-center flex-col">
         <div className="container flex justify-start">
           <p className=" font-bold text-xl pl-2 sm:text-2xl md:text-3xl mt-4">Наши рекомендации</p>
         </div>
@@ -234,7 +236,7 @@ export default function Main() {
           </div>
         </div>
       </div>
-      <div id="questions" className="bg-white w-full mt-4 font-bold text-xl sm:text-2xl md:text-3xl flex justify-center">
+      <div id="questions" className="bg-white w-full py-2 font-bold text-xl sm:text-2xl md:text-3xl flex justify-center">
         <div className="flex flex-col container px-2 sm:px-0 items-start gap-y-2 my-4">
           <p className=" font-bold text-xl sm:text-2xl md:text-3xl">Остались вопросы?</p>
           {questions.map((item, index) => (
@@ -264,7 +266,7 @@ export default function Main() {
           ))}
         </div>
       </div>
-      <div className="bg-[#e7f6fa] w-full mt-4 font-bold text-xl sm:text-2xl md:text-3xl flex justify-center">
+      <div className="bg-[#e7f6fa] w-full py-2 font-bold text-xl sm:text-2xl md:text-3xl flex justify-center">
         <div className="py-4 px-2 flex flex-col container items-start">
           <p>Распространите</p>
           <p>
