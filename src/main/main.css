@@ -1,0 +1,13 @@
+.truncated-speech {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4; /* From which line on to truncate */
+  overflow: hidden;
+}
+
+.truncated-speech:focus {
+  display: initial;
+  -webkit-box-orient: initial;
+  -webkit-line-clamp: initial; /* From which line on to truncate */
+  overflow: initial;
+}

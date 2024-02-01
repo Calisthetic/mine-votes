@@ -2,6 +2,11 @@ import background from "./../background.jpg"
 import { useEffect, useState } from "react"
 import Header from "../components/header"
 import { AnimatePresence } from "framer-motion"
+import imgNemik from "./../candidats/nemik.png"
+import imgCalsyfer from "./../candidats/calsyfer.png"
+import imgNes from "./../candidats/nes.png"
+import imgLuckyBibo from "./../candidats/luckybibo.png"
+import "./main.css"
 
 export default function Main() {
   const [isCopied, setIsCopied] = useState(false)
@@ -54,6 +59,78 @@ export default function Main() {
     {
       question: "Где можно задать больше вопросов?",
       answer: "В личку maskumau"
+    }
+  ]
+
+  const candidats = [
+    {
+      image: imgNemik,
+      nick: "Nemik228",
+      role: (<p className="whitespace-no-wrap text-[#0728e9]">Глава ФБР</p>),
+      speech: (
+        <div className=" truncated-speech group-focus:block">
+          Бом-бом
+        </div>
+      )
+    },
+    {
+      image: imgCalsyfer,
+      nick: "Calsyfer",
+      role: (<p className="whitespace-no-wrap text-[#f500a6]">Министр экономики</p>),
+      speech: (
+        <div className=" truncated-speech group-focus:block">
+          <p>Уважаемые игроки сервера OldMemories, сегодня я обращаюсь к вам с потребностью выразить свои идеи и планы на пост министра экономики на нашем сервере.</p>
+
+          <p>Одной из важнейших задач, которую я намерен выполнить, является улучшение и стабилизация экономической системы нашего сервера. Я собираюсь разработать и внедрить правила и механизмы, которые обеспечат сбалансированное распределение АРОВ в нашем сообществе. Это позволит каждому игроку иметь равные возможности для развития и создаст справедливую игровую среду.</p>
+
+          <p>Вторым важным аспектом моей работы будет стимулирование экономического роста и развития на сервере. Я собираюсь предложить и реализовать различные проекты и инициативы, которые будут способствовать созданию новых возможностей для игроков на основе нашей валюты. Это могут быть новые бизнесы, торговые операции, инвестиционные проекты и многое другое. </p>
+
+          <p>Кроме того, я буду активно проводить различные мероприятия и конкурсы в игровом мире, где игроки смогут продемонстрировать свои экономические навыки и получить дополнительные вознаграждения в виде АР. Такие инициативы помогут не только разнообразить игровой процесс, но и вовлечь большее количество игроков в активную экономическую жизнь нашего сервера.</p>
+
+          <p>Наконец, я собираюсь организовать и улучшить систему обучения новичков, чтобы они максимально быстро и эффективно освоили механику экономики сервера и смогли добиться успеха в своих игровых начинаниях.
+          Я верю, что мои знания и опыт в области экономики позволят мне эффективно управлять и развивать нашу игровую экономику на сервере. Я готов внести свой вклад в создание благоприятных условий для всех игроков, обеспечивающих их рост и процветание.</p>
+
+          <p>Спасибо за ваше внимание и поддержку! Я буду признателен за ваше доверие и голоса на предстоящих выборах. Будем развивать нашу экономику вместе!</p>
+
+          <p>С уважением, Calsyfer</p>
+        </div>
+      )
+    },
+    {
+      image: imgLuckyBibo,
+      nick: "LuckyBibo",
+      role: (<p className="whitespace-no-wrap text-[#db984a]">Глава спавна</p>),
+      speech: (
+        <div className=" truncated-speech group-focus:block">
+          Кто я?  
+        </div>
+      )
+    },
+    {
+      image: imgNes,
+      nick: "DagenhardRash",
+      role: (<p className="whitespace-no-wrap text-[#9b1b51]">Судья</p>),
+      speech: (
+        <div className=" truncated-speech group-focus:block">
+          <p>На сервере я совсем неизвестная личность по простой причине — я недавний игрок. Однако, также не успевший никому досадить, думаю, это уже чего-то да стоит.</p>
+
+          <p>— Наверное частый онлайн это один из важных факторов, в игре я почти каждый день по часу, иногда больше. В Дискорде же практически все сутки.</p>
+
+          <p>— Что касается отношения к игрокам, будучи недавним игроком, я не могу быть предвзятым человеком... да вообще ни к кому. Наверное тот факт, что мы с вами не знакомы — это даже хорошо. </p>
+
+          <p>— Хотелось бы сделать некоторые моменты строже, но при этом с грамотным объяснением наказаний. Кто участвовал в недавнем ивенте, наверное помнят все конфликты и пару всплывших проблем с непониманием друг друга (или некоторые любят прикидываться, что не понимают вторую сторону).</p>
+
+          <p>В общем, я человек спокойный, но когда придётся — строгий; умеющий слушать, а так же игнорировать, когда это требуется; умеющий спорить, анализировать и дискуссировать, если границы правил и морали размываются.</p>
+
+          <p>Если говорить о правилах, мне никогда не понять фразы "Я не знал, что этого делать нельзя", первое и последнее  правило сервера номер 13 — "В первую очередь сервер строится на взаимоуважении...".
+          Это правило УЖЕ включает в себя остальные, как: не гриферить, не воровать, не разглашать информацию и т.д. незачем перечислять остальной список.
+          А всё что касается именно этого канал-дискорда, это отдельная сеть правил. И на все правила нужно опираться перед заявлением вердикта.</p>
+
+          <p>Я не думаю, что могу влиять на атмосферу сервера, на его внутренние дела, я лишь могу разрешать конфликты, выслушивая аргументы. Единственное, хотелось бы добавить строгости. Я хочу, просто сделать всё грамотно. За организованность сервера, всё же должны быть ответственными ФБР. Это не значит, что всё нужно взвалить на них, суду с ними нужно сотрудничать.</p>
+
+          <p>Это можно расписывать очень долго, считайте, текст сокращён. Моя позиция ясна, и если кто-то согласен, прошу подарить голос. Спасибо за прочтение, если вообще дочитали до конца.</p>
+        </div>
+      )
     }
   ]
 
@@ -140,7 +217,10 @@ export default function Main() {
       </div>
       <div id="candidats" className="bg-[#e7f6fa] w-full py-2 font-bold text-xl sm:text-2xl md:text-3xl flex items-center flex-col">
         <div className="container flex justify-start">
-          <p className=" font-bold text-xl pl-2 sm:text-2xl md:text-3xl mt-4">Наши рекомендации</p>
+          <p className=" font-bold text-xl pl-2 sm:text-2xl md:text-3xl mt-4">
+            <span>Голосуйте за наших</span>
+            <span className="text-red-500 ml-1 sm:ml-2">кандидатов</span>
+          </p>
         </div>
         <div className="container lg:min-w-[900px]">
           <div className="overflow-y-hidden sm:rounded-lg border mt-2 mb-8">
@@ -148,88 +228,38 @@ export default function Main() {
               <table className="w-full">
                 <thead>
                   <tr className="bg-[#007fa3] text-left text-xs font-semibold uppercase tracking-widest text-white">
-                    <th className="px-5 pr-3 text-center w-[240px]">Ник</th>
-                    <th className="px-5 py-3 text-center w-[180px]">Роль</th>
+                    <th className="px-5 pr-3 text-center w-[200px]">Ник</th>
+                    <th className="px-5 py-3 text-center w-[140px]">Роль</th>
                     <th className="px-5 py-3 text-center">Предвыборная речь</th>
                   </tr>
                 </thead>
                 <tbody className="text-gray-500">
-                  <tr>
-                    <td className="border-b border-gray-200 bg-white px-5 py-5 text-sm">
-                      <div className="flex items-center">
-                        <div className="h-10 w-10 flex-shrink-0">
-                          <img className="h-full w-full rounded-full" 
-                          src="https://t4.ftcdn.net/jpg/00/64/67/27/240_F_64672736_U5kpdGs9keUll8CRQ3p3YaEv2M6qkVY5.jpg" alt="user" />
+                  {candidats.map((item, index) => (
+                    <tr key={index}>
+                      <td className="border-b border-gray-200 bg-white px-4 py-2 text-sm align-top">
+                        <div className="flex items-center">
+                          <div className="h-12 w-12 flex-shrink-0">
+                            <img className="h-full w-full rounded-full" src={item.image} alt={item.nick} />
+                          </div>
+                          <div className="ml-3">
+                            <p className="whitespace-no-wrap">{item.nick}</p>
+                          </div>
                         </div>
-                        <div className="ml-3">
-                          <p className="whitespace-no-wrap">Horfaralice</p>
+                      </td>
+                      <td className="border-b border-gray-200 bg-white px-2 py-2 text-sm align-top">
+                        <div className="h-12 flex items-center justify-center">
+                          {item.role}
                         </div>
-                      </div>
-                    </td>
-                    <td className="border-b border-gray-200 bg-white px-5 py-5 text-sm">
-                      <p className="whitespace-no-wrap text-[#0728e9]">Глава ФБР</p>
-                    </td>
-                    <td className="border-b border-gray-200 bg-white px-5 py-5 text-sm">
-                      <span className="rounded-full px-3 py-1 text-xs font-semibold">Yoo, chill, guys</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="border-b border-gray-200 bg-white px-5 py-5 text-sm">
-                      <div className="flex items-center">
-                        <div className="h-10 w-10 flex-shrink-0">
-                          <img className="h-full w-full rounded-full" 
-                          src="https://t4.ftcdn.net/jpg/00/64/67/27/240_F_64672736_U5kpdGs9keUll8CRQ3p3YaEv2M6qkVY5.jpg" alt="user" />
-                        </div>
-                        <div className="ml-3">
-                          <p className="whitespace-no-wrap">Calsyfer</p>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="border-b border-gray-200 bg-white px-5 py-5 text-sm">
-                      <p className="whitespace-no-wrap text-[#f500a6]">Министр экономики</p>
-                    </td>
-                    <td className="border-b border-gray-200 bg-white px-5 py-5 text-sm">
-                      <span className="rounded-full px-3 py-1 text-xs font-semibold">Но это не точно</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="border-b border-gray-200 bg-white px-5 py-5 text-sm">
-                      <div className="flex items-center">
-                        <div className="h-10 w-10 flex-shrink-0">
-                          <img className="h-full w-full rounded-full" 
-                          src="https://t4.ftcdn.net/jpg/00/64/67/27/240_F_64672736_U5kpdGs9keUll8CRQ3p3YaEv2M6qkVY5.jpg" alt="user" />
-                        </div>
-                        <div className="ml-3">
-                          <p className="whitespace-no-wrap">Без понятия кто</p>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="border-b border-gray-200 bg-white px-5 py-5 text-sm">
-                      <p className="whitespace-no-wrap text-[#9b1b51]">Судья</p>
-                    </td>
-                    <td className="border-b border-gray-200 bg-white px-5 py-5 text-sm">
-                      <span className="rounded-full px-3 py-1 text-xs font-semibold">Кота мне в дом, пж</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="bg-white px-5 py-5 text-sm">
-                      <div className="flex items-center">
-                        <div className="h-10 w-10 flex-shrink-0">
-                          <img className="h-full w-full rounded-full" 
-                          src="https://t4.ftcdn.net/jpg/00/64/67/27/240_F_64672736_U5kpdGs9keUll8CRQ3p3YaEv2M6qkVY5.jpg" alt="user" />
-                        </div>
-                        <div className="ml-3">
-                          <p className="whitespace-no-wrap">LuckyBibo</p>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="bg-white px-5 py-5 text-sm">
-                      <p className="whitespace-no-wrap text-[#db984a]">Глава спавна</p>
-                    </td>
-                    <td className="bg-white px-5 py-5 text-sm">
-                      <span className="rounded-full px-3 py-1 text-xs font-semibold">Бам-бам на**й</span>
-                    </td>
-                  </tr>
+                      </td>
+                      <td className="border-b border-gray-200 bg-white px-4 py-2 text-sm">
+                        <button className="px-3 py-1 text-xs group font-semibold text-justify indent-6 hover:underline 
+                        child:pointer-events-none focus:no-underline" 
+                        title="Нажмите, чтобы раскрыть">
+                          {item.speech}
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>
